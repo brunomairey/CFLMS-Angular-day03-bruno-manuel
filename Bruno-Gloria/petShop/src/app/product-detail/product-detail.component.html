@@ -12,11 +12,12 @@
 	          Now only for <b>{{x.price}} €</b><br>
 	         {{ x.description }}<br>
 	          {{ x.available }}</p>
-	            <ng-template [ngIf]= {{ x.available }} [ngIfElse]="none">
-	            	<button disabled (click)="addToCart(x)">Buy {{ x.name }}</button>
+	            <ng-template [ngIf]="x.available" [ngIfElse]="none">
+	            	<button (click)="addToCart(x)">Buy</button>
           </ng-template>
         <ng-template #none>
-                <p> Sorry we are out of stock, please buy something else </p>
+        	<button disabled (click)="addToCart(x)">Buy</button>
+            <p> Sorry we are out of stock, please buy something else </p>
         </ng-template>
 	          
 	        </div>
