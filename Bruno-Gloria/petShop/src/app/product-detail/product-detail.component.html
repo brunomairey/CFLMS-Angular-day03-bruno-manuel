@@ -1,1 +1,26 @@
-<p>product-detail works!</p>
+
+<h2>product Details</h2>
+
+
+ 
+
+      <div *ngIf="x" class="card col-10 mb-4 p-2">
+         <img src="{{x.img}}" class="card-img-top" style="height:35vw" alt="pet">
+	        <div class="card-body">
+	          <h5 class="card-title">{{ x.name }}</h5>
+	          <p class="card-text"><sup>For your {{ x.animal }} </sup><br>
+	          Now only for <b>{{x.price}} €</b><br>
+	         {{ x.description }}<br>
+	          {{ x.available }}</p>
+	            <ng-template [ngIf]= {{ x.available }} [ngIfElse]="none">
+	            	<button disabled (click)="addToCart(x)">Buy {{ x.name }}</button>
+          </ng-template>
+        <ng-template #none>
+                <p> Sorry we are out of stock, please buy something else </p>
+        </ng-template>
+	          
+	        </div>
+  
+      </div>
+
+
